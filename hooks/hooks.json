@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "diff -q \"${CLAUDE_PLUGIN_ROOT}/mcp-server/package.json\" \"${CLAUDE_PLUGIN_DATA}/mcp-server/package.json\" >/dev/null 2>&1 || (mkdir -p \"${CLAUDE_PLUGIN_DATA}/mcp-server\" && cp \"${CLAUDE_PLUGIN_ROOT}/mcp-server/package.json\" \"${CLAUDE_PLUGIN_DATA}/mcp-server/\" && cp \"${CLAUDE_PLUGIN_ROOT}/mcp-server/package-lock.json\" \"${CLAUDE_PLUGIN_DATA}/mcp-server/\" 2>/dev/null; cd \"${CLAUDE_PLUGIN_DATA}/mcp-server\" && npm install --production) || rm -f \"${CLAUDE_PLUGIN_DATA}/mcp-server/package.json\""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "muapi-video-marketing",
+  "version": "1.0.0",
+  "description": "Create AI-powered marketing videos using MuAPI's generative media APIs. Complete pipeline: brief, storyboard, image generation, video animation, background music, lipsync, and delivery.",
+  "author": {
+    "name": "MuAPI",
+    "url": "https://muapi.ai"
+  },
+  "homepage": "https://muapi.ai/docs/introduction",
+  "repository": "https://github.com/SamurAIGPT/Generative-Media-Skills",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "marketing",
+    "ai-video",
+    "tiktok",
+    "reels",
+    "image-generation",
+    "music-generation",
+    "lipsync",
+    "muapi",
+    "flux",
+    "suno",
+    "kling"
+  ],
+  "userConfig": {
+    "muapi_api_key": {
+      "description": "Your MuAPI API key (get one at https://muapi.ai/dashboard)",
+      "sensitive": true
+    }
+  },
+  "mcpServers": {
+    "muapi-video-marketing": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp-server/dist/index.js"],
+      "env": {
+        "MUAPI_API_KEY": "${user_config.muapi_api_key}",
+        "NODE_PATH": "${CLAUDE_PLUGIN_DATA}/mcp-server/node_modules"
+      }
+    }
+  }
+}
